@@ -1,0 +1,97 @@
+August 14th, 2014
+
+Starting on the positive project by building it the North way.
+
+VISION
+
+We're building a place to share happiness.
+No man is an island.
+As a man-island, I want a place where I can share positivity when I have it. And find positivity when it eludes me.
+The content is:
+  1. adding positivity
+  2. reading positivity
+
+REQUIREMENTS
+
+2 column layout on wide screens
+responsive
+200 character limit input box in left column
+infinity scroll of messages in the right column
+
+RELATIVE SIZE AND VALUE
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
+
+Size = 1
+
+Value = 8
+
+ESTIMATE
+
+I think it will take me 2 hours to setup scaffolding to be ready for 8/15.
+
+RESULT
+
+
+
+DESIGN
+
+systems instead of pages
+  break design into components
+    base components
+    layouts
+    aspects
+    elements
+    states
+build Mobile first
+
+DEVELOPMENT
+
+use viewport metatag
+use Mark Otto's style guide
+use singularity
+use RDFa in attributes
+use reset
+map out the content system using proper css naming conventions
+sass tools
+  singularity
+  breakpoint
+  toolkit
+  color schemer
+  modular scale
+  import once
+  north
+use mixin/extend pattern
+use chibi as jquery replacement if needed
+use yeoman north build
+
+---------
+
+GETTING STARTED
+
+  install yeoman-north and local development environment
+  - deconstruct design into html and sass components
+  determine workflow
+
+SCAFFOLDING
+
+  page-container
+    left-column (on medium to large screens)
+      header
+      post
+      text-box
+
+    right-column (on medium to large screens)
+      stream-item (is an article)
+        text
+        attribution?
+
+STYLING
+
+components
+  stream-item
+    content
+      text
+  post
+  text-box
+  header
