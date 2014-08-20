@@ -14,8 +14,9 @@ $browser-minimum-versions: (
   "safari": "5",
   "firefox": "25",
   "ios-safari": "6.0-6.1",
-  "android-chrome": "0"
+  "android-chrome": "36"
 );
+
 ////////////////////////////
 
 ////////////////////////
@@ -50,4 +51,115 @@ $browser-minimum-versions: (
 //////////////////////////////
 // LAYOUTS
 
-//////////////////////////////
+* {
+  @include box-sizing('border-box');
+}
+
+// Asymmetric grid with fixed gutters, 1 full gutter after each column
+
+//breakpoint.
+$bkpt-1: 700px;
+
+@include add-grid(1 7);
+@include add-grid(2 .5 3 at $bkpt-1);
+
+@include add-gutter(1/3);
+@include sgs-change('gutter styles', 'split');
+
+//========== *********** ==========\\
+
+// Enable debug mode for your grid visualization so show up:
+@include sgs-change('debug', true);
+
+.container {
+  @include background-grid($color: blue);
+  @include clearfix;
+}
+//========== *********** ==========\\
+
+.header {
+ @include grid-span(2, 1);
+ @include breakpoint($bkpt-1) {
+   @include grid-span(1, 1);
+ }
+}
+
+.stream-header {
+  @include breakpoint($bkpt-1) {
+    @include grid-span(2, 2);
+  }
+}
+
+//holds all stream items
+.stream-item-container {
+   @include grid-span(2, 1);
+   @include breakpoint($bkpt-1) {
+     @include grid-span(2, 2); //playing around
+   }
+   background:black;
+}
+
+// 'holds' the count and the content
+.stream-item {
+  @include clearfix;
+  background:red;
+   @include breakpoint($bkpt-1) {
+  //   // playing around:
+  //   // 0 gutter to fit inside 'stream-item-container'
+  //   // span all 3 (which must be the breakpoint grid)
+    @include grid-span(2, 1, (1 3), $gutter: 0);
+    background:orange;
+  }
+}
+
+.count-container {
+  @include grid-span(1,1, $gutter: 0);
+  background: white;
+  @include breakpoint($bkpt-1) {
+    @include grid-span(1, 1, (1 7), $gutter: 0);
+    background:purple;
+  }
+}
+
+.stream-content {
+  @include grid-span(1,2);
+  @include breakpoint($bkpt-1) {
+    @include grid-span(1, 2, (1 7), $gutter: .25);
+    background:green;
+  }
+}
+
+.post-input {
+  @include breakpoint($bkpt-1) {
+    @include grid-span(1, 1);
+    clear: both;
+  }
+}
+
+.about-container {
+  @include breakpoint($bkpt-1) {
+    @include grid-span(1, 1);
+    clear:both;
+  }
+}
+
+.tagline {
+  display: inline-block;
+}
+
+.post-icon {
+  float: right;
+}
+
+.hide-desktop {
+  @include breakpoint($bkpt-1) {
+    display:none;
+  }
+}
+
+.hide-mobile {
+  display: none;
+  @include breakpoint($bkpt-1) {
+    display: block;
+  }
+}

@@ -2,3 +2,6 @@
 bower_components/
 node_modules/
 vendor/
+log.txt
+mockups/
+.DS_Store
