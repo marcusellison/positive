@@ -36,6 +36,11 @@ $browser-minimum-versions: (
 ////////////////////////
 
 //////////////////////////////
+// BASE
+@import "partials/base/content";
+//////////////////////////////
+
+//////////////////////////////
 // GLOBALS
 @import "partials/global/variables";
 @import "partials/global/functions";
@@ -50,10 +55,6 @@ $browser-minimum-versions: (
 
 //////////////////////////////
 // LAYOUTS
-
-* {
-  @include box-sizing('border-box');
-}
 
 // Asymmetric grid with fixed gutters, 1 full gutter after each column
 
@@ -78,10 +79,11 @@ $bkpt-1: 700px;
 //========== *********** ==========\\
 
 .header {
- @include grid-span(2, 1);
- @include breakpoint($bkpt-1) {
-   @include grid-span(1, 1);
- }
+  background: $yellow;
+  @include grid-span(2, 1);
+  @include breakpoint($bkpt-1) {
+    @include grid-span(1, 1);
+  }
 }
 
 .stream-header {
@@ -137,6 +139,8 @@ $bkpt-1: 700px;
 }
 
 .about-container {
+  background: $charcoal;
+  color: $white;
   @include breakpoint($bkpt-1) {
     @include grid-span(1, 1);
     clear:both;
