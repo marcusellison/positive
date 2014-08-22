@@ -24,3 +24,16 @@ $bkpt-1: 700px; //breakpoint.
   @include clearfix;
 }
 //========== *********** ==========\\
+
+.hide-desktop {
+  @include breakpoint($bkpt-1) {
+    display:none;
+  }
+}
+
+.hide-mobile {
+  display: none;
+  @include breakpoint($bkpt-1) {
+    display: block;
+  }
+}

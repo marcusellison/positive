@@ -1,15 +1,2 @@
 
 @import "variables/variables.scss";
-
-.hide-desktop {
-  @include breakpoint($bkpt-1) {
-    display:none;
-  }
-}
-
-.hide-mobile {
-  display: none;
-  @include breakpoint($bkpt-1) {
-    display: block;
-  }
-}
