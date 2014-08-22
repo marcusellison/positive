@@ -1,33 +1,60 @@
 
 
-@import "content/variables"
+@import "content/variables";
 
-// body {
-//   color: $text-color;
-//   font-size: $base-font-size;
-//   font-family: $base-font-family;
-//   font-weight: $base-font-weight;
-//   line-height: 1.6;
-// }
-//
-// .h1, .h2, .h3, .h4, .h5, .h6 { font-family: $heading-font-family; font-weight: $heading-font-weight; }
-// .h1, .h2 { line-height: 1.1; }
-// .h3, .h4 { line-height: 1.3; }
-// .h1 { font-size: 400%; letter-spacing: -2px; }
-// .h2 { font-size: 250%; letter-spacing: -1px; }
-// .h3 { font-size: 200%; }
-// .h4 { font-size: 180%; }
-// .h5 { font-size: 130%; }
-//
-// .fixed { font-family: $fixed-font-family; font-size: $fixed-font-size; line-height: $fixed-line-height; }
-//
-// .quiet { font-color: $quiet-color; }
-// .loud  { font-color: $loud-color; }
-//
-// .italic { font-style: italic; }
-// .bold   { font-weight: 700; @extend .loud; }
-//
-// .block-margins { margin: 1em 0; }
-//
-// .unordered-list { list-style-type: disc; }
-// .ordered-list { list-style: decimal; }
+body {
+  color: $text-color;
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+}
+
+.base--a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.base--p {
+  margin: 20px 0;
+}
+
+.base--h1 {
+  font-size: 15px;
+  font-weight: 900;
+  color: $charcoal;
+}
+
+.base--h2 {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.post-input {
+  background: $light-yellow;
+}
+
+.base--submit {
+  cursor: pointer;
+  background: none;
+  border: 2px solid $charcoal;
+  padding: 5px 30px;
+  font-size: 15px;
+  float: right;
+}
+
+.base--textarea {
+  background: none;
+  border: none;
+  overflow: auto;
+  outline: none;
+  // -webkit-box-shadow: none;
+  // -moz-box-shadow: none;
+  // box-shadow: none;
+  width: 100%;
+  resize: none;
+  color: $grey;
+  min-height: 200px;
+  @include box-shadow(none);
+}

@@ -1,0 +1,13 @@
+.count-container {
+  @include grid-span(1,1, $gutter: 0);
+  background: white;
+  @include breakpoint($bkpt-1) {
+    @include grid-span(1, 1, (1 7), $gutter: 0);
+  }
+}
+
+// 'holds' the count and the content
+
+.count-number {
+  display: block;
+}

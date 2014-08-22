@@ -1,0 +1,39 @@
+
+//////////////////////////////
+// section Layout Extendable Classes
+//////////////////////////////
+
+%_section {
+  padding: 30px;
+}
+
+%_section--primary {
+  @extend %_section;
+  @include grid-span(2, 1);
+  @include breakpoint($bkpt-1) {
+    @include grid-span(1, 1);
+  }
+}
+
+%_section--secondary {
+  @extend %_section;
+  @include grid-span(2, 1);
+  @include breakpoint($bkpt-1) {
+    @include grid-span(2, 2); //playing around
+  }
+}
+
+%_section--STREAM-HEADER {
+  @extend %_section--secondary;
+  padding: 30px 40px 27px;
+}
+
+%section--LEFT-BOX {
+  @extend %_section--primary;
+  clear: left;
+}
+
+%section--POST-BOX {
+  @extend %section--LEFT-BOX;
+    padding: 30px 20px 20px 30px;
+}

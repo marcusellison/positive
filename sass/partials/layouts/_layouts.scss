@@ -1,0 +1,26 @@
+//layouts are used for laying out pages and regions
+
+
+
+// ======== Asymmetric grid with fixed gutters, 1 full gutter after each column
+
+
+$bkpt-1: 700px; //breakpoint.
+
+@include add-grid(1 7);
+@include add-grid(2 .5 3 at $bkpt-1);
+
+@include add-gutter(0);
+@include sgs-change('gutter styles', 'split');
+
+//========== *********** ==========\\
+
+
+//@include sgs-change('debug', true); // Enable debug mode for your grid visualization to show up:
+
+.container {
+  //@include background-grid($color: blue); // background grid
+  background: $charcoal;
+  @include clearfix;
+}
+//========== *********** ==========\\

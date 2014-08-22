@@ -1,0 +1,7 @@
+.stream-content {
+  @include grid-span(1,2);
+  @include breakpoint($bkpt-1) {
+    @include grid-span(1, 2, (1 7), $gutter: .25);
+    //background:green;
+  }
+}

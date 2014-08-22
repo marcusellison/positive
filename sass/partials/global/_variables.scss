@@ -1,5 +1,15 @@
 
-// Global Variables
-$charcoal: rgb(77, 77, 77);
-$white: rgb(255, 255, 255);
-$yellow: rgb(255,204,104);
+@import "variables/variables.scss";
+
+.hide-desktop {
+  @include breakpoint($bkpt-1) {
+    display:none;
+  }
+}
+
+.hide-mobile {
+  display: none;
+  @include breakpoint($bkpt-1) {
+    display: block;
+  }
+}

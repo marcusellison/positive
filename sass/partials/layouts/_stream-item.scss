@@ -1,0 +1,8 @@
+._stream-item {
+  @include clearfix;
+   @include breakpoint($bkpt-1) {
+  //   // 0 gutter to fit inside 'stream-item-container'
+  //   // span all 3 (which must be the breakpoint grid)
+    @include grid-span(2, 1, (1 3), $gutter: 0);
+  }
+}

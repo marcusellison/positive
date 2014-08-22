@@ -1,0 +1,29 @@
+
+// The boxes that make up the page
+
+
+// import the helpers
+@import "section/variables";
+@import "section/mixins";
+@import "section/extends";
+
+
+// let the styling begin!
+
+._section {
+  @extend %_section;
+
+  &--primary {
+    @extend %_section--primary;
+  }
+
+  &--secondary {
+    @extend %_section--secondary;
+  }
+  &--STREAM-HEADER {
+    @extend %_section--STREAM-HEADER;
+  }
+  &--LEFT-BOX {
+    @extend %section--LEFT-BOX;
+  }
+}
