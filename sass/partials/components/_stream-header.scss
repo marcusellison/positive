@@ -2,4 +2,11 @@
   background: $white;
   color: $yellow;
   border-bottom: 3px solid $yellow;
+
+  &--post-count {
+    color: $charcoal;
+    display: inline-block;
+    float: right;
+    line-height: 24px;
+  }
 }
