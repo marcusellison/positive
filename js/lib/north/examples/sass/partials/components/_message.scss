@@ -1,0 +1,44 @@
+//////////////////////////////
+// Message Component
+//
+// The partial and folder structure for this component should be as follows:
+// _message.scss
+// message (folder)
+//   _variables.scss
+//   _mixins.scss
+//   _extends.scss
+//
+//////////////////////////////
+
+@import "message/variables";
+@import "message/mixins";
+@import "message/extends";
+
+//////////////////////////////
+// @{message--STATUS}
+// Status styling for Message Component
+.message--STATUS {
+  @extend %message--STATUS;
+}
+// {message--STATUS}@
+//////////////////////////////
+
+
+//////////////////////////////
+// @{message--WARNING}
+// Warning styling for Message Component
+.message--WARNING {
+  @extend %message--WARNING;
+}
+// {message--WARNING}@
+//////////////////////////////
+
+
+//////////////////////////////
+// @{message--ERROR}
+// Error styling for Message Component
+.message--ERROR {
+  @extend %message--ERROR;
+}
+// {message--ERROR}@
+//////////////////////////////

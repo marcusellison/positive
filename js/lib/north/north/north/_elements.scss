@@ -1,0 +1,16 @@
+//////////////////////////////
+// Functions
+//////////////////////////////
+@function n-element($name) {
+  @return to-lower-case($name);
+}
+
+//////////////////////////////
+// Mixins
+//////////////////////////////
+@mixin element($name) {
+  &--#{n-element($name)} {
+    @content;
+  }
+}
+

@@ -1,9 +1,19 @@
-<!doctype ht]ml>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>The Positive Project</title>
   <link rel="stylesheet" href="css/style.css">
+  <script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
+    <script>
+    // Load common code that includes config, then load the app logic for
+    // this page. Do the require calls here instead of a separate file
+    // so after a build there are only 2 HTTP requests instead of three.
+    require(['config'], function(config) {
+        // baseUrl is js/ so we can just ask for `app/main` here instead of `js/app/main`.
+        require(['app/main']);
+    });
+    </script>
 </head>
 <body>
   <div class="container">
@@ -19,86 +29,7 @@
       <span class="stream-header--post-count">742 happy ventilations</span>
     </div>
 
-    <div class="stream-item-container _section--secondary">
-
-      <article class="stream-item">
-        <div class="count-container">
-          <img class="like-icon" src="images/pp_icon_unclicked_01.png">
-          <span class="like-count hide-desktop">32</span>
-        </div>
-        <div class="stream-content">
-          <p class="main-stream-text">Sunsets are beautiful.</p>
-          <p class="info-stream-text">NEW YORK • Right Now • <a class="base--a" href="">Not positive? Click to flag.</a> • Tweet • <span class="stream-item--post-count">32 positive vibes</span></p>
-        </div>
-      </article>
-
-      <article class="stream-item">
-        <div class="count-container">
-          <img class="like-icon" src="images/pp_icon_unclicked_01.png">
-          <span class="like-count hide-desktop">32</span>
-        </div>
-        <div class="stream-content">
-          <p class="main-stream-text">There's nothing better than an email from a good friend.</p>
-          <p class="info-stream-text">NEW YORK • 7m ago • <a class="base--a" href="">Not positive? Click to flag.</a> • Tweet • <span class="stream-item--post-count">32 positive vibes</span></p>
-        </div>
-      </article>
-
-      <article class="stream-item">
-        <div class="count-container">
-          <img class="like-icon" src="images/pp_icon_active_01.png">
-          <span class="like-count hide-desktop">32</span>
-        </div>
-        <div class="stream-content">
-          <p class="main-stream-text">Cheeseburgers are just plain amazing.</p>
-          <p class="info-stream-text">OHIO • 8m ago • <a>Not positive? Click to flag.</a> • <a>Tweet</a> • <span class="stream-item--post-count">32 positive vibes</span></p>
-        </div>
-      </article>
-
-      <article class="stream-item">
-        <div class="count-container">
-          <img class="like-icon" src="images/pp_icon_unclicked_01.png">
-          <span class="like-count hide-desktop">32</span>
-        </div>
-        <div class="stream-content">
-          <p class="main-stream-text">Life is fantastic. So is my dog. She smells good!</p>
-          <p class="info-stream-text">VERMONT • 14m ago • <a>Not positive? Click to flag.</a> • <a>Tweet</a> • <span class="stream-item--post-count">32 positive vibes</span></p>
-        </div>
-      </article>
-
-      <article class="stream-item">
-        <div class="count-container">
-          <img class="like-icon" src="images/pp_icon_unclicked_01.png">
-          <span class="like-count hide-desktop">32</span>
-        </div>
-        <div class="stream-content">
-          <p class="main-stream-text">Life is fantastic. So is my dog. She smells good!</p>
-          <p class="info-stream-text">VERMONT • 14m ago • <a>Not positive? Click to flag.</a> • <a>Tweet</a> • <span class="stream-item--post-count">32 positive vibes</span></p>
-        </div>
-      </article>
-
-      <article class="stream-item">
-        <div class="count-container">
-          <img class="like-icon" src="images/pp_icon_unclicked_01.png">
-          <span class="like-count hide-desktop">32</span>
-        </div>
-        <div class="stream-content">
-          <p class="main-stream-text">Life is fantastic. So is my dog. She smells good!</p>
-          <p class="info-stream-text">VERMONT • 14m ago • <a>Not positive? Click to flag.</a> • <a>Tweet</a> • <span class="stream-item--post-count">32 positive vibes</span></p>
-        </div>
-      </article>
-
-      <article class="stream-item">
-        <div class="count-container">
-          <img class="like-icon" src="images/pp_icon_unclicked_01.png">
-          <span class="like-count hide-desktop">32</span>
-        </div>
-        <div class="stream-content">
-          <p class="main-stream-text">Life is fantastic. So is my dog. She smells good!</p>
-          <p class="info-stream-text">VERMONT • 14m ago • <a>Not positive? Click to flag.</a> • <a>Tweet</a> • <span class="stream-item--post-count">32 positive vibes</span></p>
-        </div>
-      </article>
-
-    </div>
+    <div id="stream" class="stream-item-container _section--secondary"></div>
 
     <form class="hide-mobile post-input _section--LEFT-BOX">
       <textarea class="base--textarea" maxlength='200' placeholder="Say something positive..."></textarea>
@@ -106,7 +37,7 @@
     </form>
 
     <section class="hide-mobile about-container _section--LEFT-BOX">
-      <h2 class="base--h2">about the project</h2>
+      <h2 class="base--h2">about the pub</h2>
       <p class="base--p">It all started in 1946, when Truett Cathy opened his first restaurant, Dwarf Grill, in Hapeville, Georgia. Credited with inventing Chick-fil-A’s boneless breast of chicken sandwich,</p>
       <p class="base--p">Mr. Cathy founded Chick-fil-A, Inc. in the early 1960s and pioneered the establishment of restaurants in shopping malls with the open- ing of the first Chick-fil-A Restaurant at a mall in suburban Atlanta
 in 1967. Since then, Chick-fil-A has steadily grown to become the second largest quick-service chicken restaurant chain in the United States, with over 1,700 locations in 39 states and Washington, D.C. In 2012, annual sales were over $4.6 billion. Chick-fil-A is still privately held and family owned.</p>

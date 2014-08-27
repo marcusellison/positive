@@ -1,0 +1,41 @@
+{
+  "name": "eq.js",
+  "version": "1.0.1",
+  "authors": [
+    "Sam Richard <snugug@gmail.com>"
+  ],
+  "description": "Element queries, fast and light",
+  "main": "dist/eq.min.js",
+  "keywords": [
+    "Element Queries",
+    "Responsive Web Design",
+    "JavaScript",
+    "RWD"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "Gemfile",
+    "Gemfile.lock",
+    "Gruntfile.js",
+    "bower.json",
+    "css",
+    "index.html",
+    "package.json",
+    "sass/style.scss"
+  ],
+  "homepage": "https://github.com/Snugug/borealis",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "112bfd9b77e110786ca9b3f5b16272eaab3b0d9a"
+  },
+  "_source": "git://github.com/Snugug/borealis.git",
+  "_target": "~1.0.1",
+  "_originalSource": "borealis"
+}
