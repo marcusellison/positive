@@ -10,7 +10,11 @@ define(['backbone', 'models/stream_item'],
 
         var Collection = Backbone.Collection.extend({
 
-            model: Model
+          model: Model,
+
+          comparator: function( model ){
+            return( model.get('text') );
+          }
             // save: function(data, options) {
             //     $.ajax({
             //         type: "POST",

@@ -13,10 +13,16 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/stream_item_tpl']
 
             template: streamItemTemplate,
 
-            initialize: function(options) {
-                this.listenTo(this.model, "add", this.render);
-                this.listenTo(this.model, "remove", this.render);
-                this.listenTo(this.model, "change", this.render);
+            //  initialize: function(options) {
+            //  },
+
+            events: {
+              "click .remove_stream_item": "removeStreamItem"
+            },
+
+            removeStreamItem: function(event) {
+              event.preventDefault();
+              this.remove();
             }
 
         });

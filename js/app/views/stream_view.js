@@ -17,11 +17,17 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
             itemView: StreamItem,
 
-            // initialize: function(options) {
-            //   this.router = options.router;
-            //   this.listenTo(this.collection, "add", this.updateModelNumbers);
-            //   this.listenTo(this.collection, "remove", this.updateModelNumbers);
-            // }
+            // attach the composite view's render method to the collection's add event
+            // and override the addChildView to nothing.
+            // prevents the collection from rendering the child on initialize, while binding render to the add of the collection
+            addChildView: function(){},
+              collectionEvents: {
+                'add': 'render'
+            },
+
+            initialize: function(options) {
+              // this.router = options.router;
+            },
             // events: {
             //     "click .payment_method": "updatePaymentMethods",
             //     'focus .currency_format': 'triggerCurrencyFormat',

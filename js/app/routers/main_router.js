@@ -2,10 +2,10 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
-define(['backbone', 'models/stream_item', 'collections/stream_items', 'views/layout'
+define(['backbone', 'models/stream_item', 'collections/stream_items', 'views/layout', 'views/post_view'
     ],
 
-    function(Backbone, StreamItemModel, StreamItemsCollection, Layout) {
+    function(Backbone, StreamItemModel, StreamItemsCollection, Layout, PostView) {
 
         'use strict';
 
@@ -16,20 +16,17 @@ define(['backbone', 'models/stream_item', 'collections/stream_items', 'views/lay
             },
 
             initialize: function() {
-                this.streamItem = new StreamItemModel(window.streamItem);
-                this.streamItems = new StreamItemsCollection(window.streamItems);
+              this.streamItems = new StreamItemsCollection(window.streamItems);
+              this.streamItem = new StreamItemModel();
 
-                var item = new StreamItemModel({
-                  date: "somedate",
-                  text: "Some really awesome text"
-                });
-
-                this.streamItems.add(item);
-
-                this.layout = new Layout({
-                    streamItem: this.streamItem,
-                    streamItems: this.streamItems
-                });
+              this.layout = new Layout({
+                  streamItems: this.streamItems,
+                  streamItem: this.streamItem
+              });
+               var view = new PostView({
+                 collection: this.streamItems
+               });
+               view.render();
             },
 
             showStreamView: function() {
