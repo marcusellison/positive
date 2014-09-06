@@ -1,6 +1,5 @@
 /*
- * Payment Schedule View - in Create Agreement
- * Composite view for payments collection
+ * Stream View
  */
 
 define(['backbone', 'handlebars', 'underscore', 'marionette',

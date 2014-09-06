@@ -13,16 +13,39 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/stream_item_tpl']
 
             template: streamItemTemplate,
 
-            //  initialize: function(options) {
-            //  },
+            initialize: function(options) {
+              this.listenTo(this.model, "change", this.render);
+            },
 
             events: {
-              "click .remove_stream_item": "removeStreamItem"
+              "click .remove_stream_item": "removeStreamItem",
+              "click .like-icon": "addVibe"
             },
 
             removeStreamItem: function(event) {
               event.preventDefault();
               this.remove();
+            },
+
+            addVibe: function(event) {
+              var src = "images/pp_icon_active_01.png";
+
+              event.target.src = src;
+              var vibes = this.incrementVibes();
+
+              this.model.set({
+                vibes: vibes
+              });
+            },
+
+            incrementVibes: function(event) {
+              var vibes;
+              vibes = this.model.get('vibes');
+              return vibes += 1;
+            },
+
+            onBeforeDestroy: function(){
+              this.$el.fadeOut();
             }
 
         });

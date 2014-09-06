@@ -18,6 +18,9 @@
 
 .post-icon {
   float: right;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .like-icon {

@@ -17,6 +17,7 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
 
           initialize: function(options) {
             this.collection = options.collection;
+            this.location = this.getLocation();
           },
 
           events: {
@@ -31,7 +32,7 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
                   location = 'New York City',
                   vibes = 1;
 
-              this.collection.add({
+              this.collection.create({
                   text: event.target.value,
                   date: date,
                   location: location,
@@ -48,13 +49,15 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
           addStreamItem: function(event) {
             event.preventDefault();
 
+            console.log(this.location);
+
             var $event = $(event);
             var date = moment().format('h:mm a');
-            var location = 'New York City';
+            var location = "New York City";
             var $text = $('#post_message').val();
             var vibes = 1;
 
-            this.collection.add({
+            this.collection.create({
               date: date,
               text: $text,
               location: location,
@@ -63,6 +66,24 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
 
             $('#post_message').val('');
 
+            var streamItem = this.collection.get();
+
+            console.log("stream item:" + streamItem);
+
+          },
+
+          getLocation: function() {
+            $.ajax( {
+              url: '//freegeoip.net/json/',
+              type: 'POST',
+              dataType: 'jsonp',
+              success: function(location) {
+                console.log(location.country_code);
+                var country = location.country_code;
+                console.log(country);
+                return country;
+              }
+            } );
           }
 
         });

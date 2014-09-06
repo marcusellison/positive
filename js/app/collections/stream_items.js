@@ -12,8 +12,18 @@ define(['backbone', 'models/stream_item'],
 
           model: Model,
 
+          url: '/getStreamItems',
+
           comparator: function( model ){
             return( model.get('text') );
+          },
+
+          getTotalPosts: function() {
+            if (this.collection) {
+              return this.collection.length;
+            } else {
+              return "0";
+            }
           }
             // save: function(data, options) {
             //     $.ajax({
