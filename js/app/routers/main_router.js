@@ -18,7 +18,7 @@ define(['backbone', 'models/stream_item', 'collections/stream_items', 'views/lay
             initialize: function() {
               this.streamItems = new StreamItemsCollection(window.streamItems);
               this.streamItems.fetch();
-              this.streamItem = new StreamItemModel();
+              this.streamItem = "new StreamItemModel();" //fast comment out
 
               this.layout = new Layout({
                   streamItems: this.streamItems,

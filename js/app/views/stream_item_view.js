@@ -24,23 +24,46 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/stream_item_tpl']
 
             removeStreamItem: function(event) {
               event.preventDefault();
-              this.remove();
+
+              var id = this.model.get("ID");
+              console.log(id);
+
+              this.model.destroy({ id: id }, {
+                success: function(model, response) {
+                  console.log(model);
+                  console.log(response);
+                },
+                error: function(model, response) {
+                  console.log(model);
+                  console.log(response);
+                }
+              });
+              console.log("delete request sent");
             },
 
             addVibe: function(event) {
               var src = "images/pp_icon_active_01.png";
 
               event.target.src = src;
-              var vibes = this.incrementVibes();
+
+
+              var vibes = this.incrementVibes(vibes);
 
               this.model.set({
-                vibes: vibes
+                Vibes: vibes
+              });
+
+              this.model.save({}, {
+                success: function(model, response) {
+                  console.log("update request received");
+                },
+                error: function(model, response) {
+                }
               });
             },
 
-            incrementVibes: function(event) {
-              var vibes;
-              vibes = this.model.get('vibes');
+            incrementVibes: function() {
+              var vibes = this.model.get('Vibes');
               return vibes += 1;
             },
 

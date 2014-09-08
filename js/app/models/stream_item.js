@@ -4,8 +4,11 @@ define(['backbone','backbone-relational', 'moment'],
 
 		'use strict';
 
+		var globalCounter = 1;
+
 		var StreamItem = Backbone.RelationalModel.extend({
-			url: '/createStreamItem'
+			urlRoot: '/streamItem',
+			idAttribute: 'ID'
 		});
 
 		return StreamItem;

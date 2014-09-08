@@ -33,10 +33,10 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
                   vibes = 1;
 
               this.collection.create({
-                  text: event.target.value,
-                  date: date,
-                  location: location,
-                  vibes: vibes
+                  Text: event.target.value,
+                  Date: date,
+                  Location: location,
+                  Vibes: vibes
               },
                 {at: 0},
                 {merge: true}
@@ -69,6 +69,8 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
             var streamItem = this.collection.get();
 
             console.log("stream item:" + streamItem);
+
+            this.collection.fetch();
 
           },
 
