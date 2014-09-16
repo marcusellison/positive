@@ -2,10 +2,10 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
-define(['backbone', 'models/stream_item', 'collections/stream_items', 'views/layout', 'views/post_view', 'views/stream_header_view'
+define(['backbone', 'eq', 'models/stream_item', 'collections/stream_items', 'views/layout', 'views/post_view', 'views/stream_header_view'
     ],
 
-    function(Backbone, StreamItemModel, StreamItemsCollection, Layout, PostView, StreamHeaderView) {
+    function(Backbone, EQ, StreamItemModel, StreamItemsCollection, Layout, PostView, StreamHeaderView) {
 
         'use strict';
 

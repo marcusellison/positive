@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The Positive Project</title>
+  <title>The Positive Pub</title>
   <link rel="stylesheet" href="css/style.css">
   <script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
     <script>
@@ -18,10 +18,10 @@
 <body>
   <div class="container">
 
-    <header class="header _section--primary">
-      <h1 class="base--h1" style="display:inline-block;"><span style="font-weight:100;">The</span> Positive Pub</h1>
-      <a class="hide-desktop post-icon"><img src="images/pp_icon_active_01.png"></a>
-      <span class="hide-mobile tagline" style="display:inline-block;float:right;line-height: 24px;">A place to vent your happiness.</span>
+    <header id="header" class="header _section--primary" style="padding: 18px;">
+      <h1 class="base--h1" style="display:inline-block;"><span style="font-weight:100;text-transform: uppercase;">The</span> Positive Pub</h1>
+      <a id="mobile_post_icon" style="position:absolute;top:0;right:0;" class="hide-desktop post-icon"><img width="62" src="images/pp_mobile_post-unclicked.png"></a>
+      <span class="tagline" style="float:right;line-height: 24px;">A place to vent your happiness.</span>
     </header>
 
     <div class="hide-mobile stream-header _section--STREAM-HEADER">
@@ -29,20 +29,19 @@
       <span class="stream-header--post-count"> happy ventilations</span>
     </div>
 
-    <div id="stream" class="stream-item-container _section--secondary"></div>
-
-    <div id="post" class="hide-mobile ">
-      <form class="post-input _section--LEFT-BOX">
+    <div id="post">
+      <form class="post-input _section--POST-BOX" data-eq-pts="small: 400, large: 700" data-eq-state="small">
         <textarea id="post_message" class="base--textarea" maxlength='200' placeholder="Say something positive..."></textarea>
         <input class="base--submit add_stream_item" type="submit" value="SUBMIT">
       </form>
     </div>
 
+    <div id="stream" class="stream-item-container _section--secondary"></div>
+
     <section class="hide-mobile about-container _section--LEFT-BOX">
       <h2 class="base--h2">about the pub</h2>
       <p class="base--p">Inspired, positive words live here.</p>
-      <p class="base--p">Mr. Cathy founded Chick-fil-A, Inc. in the early 1960s and pioneered the establishment of restaurants in shopping malls with the open- ing of the first Chick-fil-A Restaurant at a mall in suburban Atlanta
-in 1967. Since then, Chick-fil-A has steadily grown to become the second largest quick-service chicken restaurant chain in the United States, with over 1,700 locations in 39 states and Washington, D.C. In 2012, annual sales were over $4.6 billion. Chick-fil-A is still privately held and family owned.</p>
+      <p class="base--p">Be inspired by inspiration.</p>
 
       <a class="twitter_follow_link" href="">Follow us on Twitter ></a>
     </section>

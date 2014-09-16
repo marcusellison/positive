@@ -33,6 +33,7 @@ $browser-minimum-versions: (
 @import "singularitygs";
 @import "modular-scale";
 @import "color-schemer";
+@import "eq";
 ////////////////////////
 
 //////////////////////////////
@@ -49,6 +50,15 @@ $browser-minimum-versions: (
 //////////////////////////////
 
 //////////////////////////////
+// LAYOUTS
+@import "partials/layouts/layouts";
+@import "partials/layouts/section";
+@import "partials/layouts/stream-item";
+@import "partials/layouts/count-container";
+@import "partials/layouts/stream-content";
+//////////////////////////////
+
+//////////////////////////////
 // COMPONENTS
 @import "partials/components/header";
 @import "partials/components/stream-header";
@@ -56,11 +66,3 @@ $browser-minimum-versions: (
 @import "partials/components/stream-item";
 @import "partials/components/about-container";
 //////////////////////////////
-
-//////////////////////////////
-// LAYOUTS
-@import "partials/layouts/layouts";
-@import "partials/layouts/section";
-@import "partials/layouts/stream-item";
-@import "partials/layouts/count-container";
-@import "partials/layouts/stream-content";

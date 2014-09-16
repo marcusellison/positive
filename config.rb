@@ -22,3 +22,5 @@ relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 line_comments = false
+
+add_import_path "./js/lib/eq.js/sass"

@@ -3,9 +3,9 @@
  * A unit of positivity
  */
 
-define(['backbone', 'handlebars', 'underscore', 'hbs!templates/stream_item_tpl'],
+define(['backbone', 'handlebars', 'moment', 'underscore', 'hbs!templates/stream_item_tpl'],
 
-    function(Backbone, Handlebars, _, streamItemTemplate) {
+    function(Backbone, Handlebars, moment, _, streamItemTemplate) {
 
         'use strict';
 
@@ -17,6 +17,13 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/stream_item_tpl']
               this.listenTo(this.model, "change", this.render);
             },
 
+            // serializeData: function(){
+            //   return {
+            //     "time": this.time
+            //   }
+            // },
+
+
             events: {
               "click .remove_stream_item": "removeStreamItem",
               "click .like-icon": "addVibe"
@@ -26,19 +33,13 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/stream_item_tpl']
               event.preventDefault();
 
               var id = this.model.get("ID");
-              console.log(id);
 
               this.model.destroy({ id: id }, {
                 success: function(model, response) {
-                  console.log(model);
-                  console.log(response);
                 },
                 error: function(model, response) {
-                  console.log(model);
-                  console.log(response);
                 }
               });
-              console.log("delete request sent");
             },
 
             addVibe: function(event) {
@@ -55,7 +56,6 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/stream_item_tpl']
 
               this.model.save({}, {
                 success: function(model, response) {
-                  console.log("update request received");
                 },
                 error: function(model, response) {
                 }

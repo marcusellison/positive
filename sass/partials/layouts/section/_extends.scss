@@ -19,21 +19,33 @@
   @extend %_section;
   @include grid-span(2, 1);
   @include breakpoint($bkpt-1) {
-    @include grid-span(2, 2); //playing around
+    @include grid-span(2, 2);
   }
 }
 
 %_section--STREAM-HEADER {
   @extend %_section--secondary;
-  padding: 30px 60px 27px;
+  padding: 18px 60px 15px;
 }
 
-%section--LEFT-BOX {
+%_section--LEFT-BOX {
   @extend %_section--primary;
   clear: left;
 }
 
-%section--POST-BOX {
-  @extend %section--LEFT-BOX;
-    padding: 30px 20px 20px 30px;
+%_section--POST-BOX {
+  @extend %_section--LEFT-BOX;
+  @include eq('large') {
+    display: block;
+  }
+
+  @include eq('small') {
+    display: none;
+  }
+  // &[data-eq-state="large"] {
+  //   display: none;
+  // }
+  // &[data-eq-state="small"] {
+  //   display: none;
+  // }
 }

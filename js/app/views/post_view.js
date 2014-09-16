@@ -28,13 +28,13 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
           addStreamItemEnter: function(event) {
 
             if (event.keyCode == 13) {
-              var date = moment().format('h:mm a'),
+              var time = moment().format('h:mm a'),
                   location = 'New York City',
                   vibes = 1;
 
               this.collection.create({
                   Text: event.target.value,
-                  Date: date,
+                  Time: time,
                   Location: location,
                   Vibes: vibes
               },
@@ -49,16 +49,14 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
           addStreamItem: function(event) {
             event.preventDefault();
 
-            console.log(this.location);
-
             var $event = $(event);
-            var date = moment().format('h:mm a');
+            var time = moment().format('h:mm a');
             var location = "New York City";
             var $text = $('#post_message').val();
             var vibes = 1;
 
             this.collection.create({
-              date: date,
+              time: time,
               text: $text,
               location: location,
               vibes: vibes
@@ -67,8 +65,6 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
             $('#post_message').val('');
 
             var streamItem = this.collection.get();
-
-            console.log("stream item:" + streamItem);
 
             this.collection.fetch();
 
@@ -80,9 +76,7 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
               type: 'POST',
               dataType: 'jsonp',
               success: function(location) {
-                console.log(location.country_code);
                 var country = location.country_code;
-                console.log(country);
                 return country;
               }
             } );

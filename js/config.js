@@ -31,6 +31,7 @@ require.config({
         marionette: 'lib/backbone.marionette/lib/backbone.marionette',
         modernizr: 'lib/modernizr/modernizr',
         'backbone-relational': 'lib/backbone-relational/backbone-relational',
+        eq: 'lib/eq.js/dist/eq.min',
 
         //plugins - bower
         text: 'lib/requirejs-text/text',

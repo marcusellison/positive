@@ -24,12 +24,23 @@
 }
 
 .like-icon {
-  width: 90%;
+  width: 50%;
   margin-top: 16px;
+  &:hover {
+    cursor: pointer;
+  }
+  @include breakpoint($bkpt-1) {
+    width: 90%;
+  }
 }
 
 .like-count {
   color: $charcoal;
+  display: block;
+  text-align: center;
+  @include breakpoint($bkpt-1) {
+    display: none;
+  }
 }
 
 .stream-item--post-count {

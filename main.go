@@ -18,9 +18,10 @@ type StreamItem struct {
         ID        bson.ObjectId `bson:"_id,omitempty"`
         Text      string
         Location  string
-        Timestamp time.Time `json:"time"`
+        Time      string `moment date-object: "time"`
         Vibes     int
         Type      string
+        Timestamp time.Time `json:"time"`
 }
 
 func main() {
@@ -77,7 +78,7 @@ func createStreamItem(w http.ResponseWriter, req *http.Request) {
     c := session.DB("test").C("posts")
 
     // insert the new stream item
-    err = c.Insert(&StreamItem{Text: item.Text, Location: item.Location, Timestamp: time.Now(),Vibes: 1 })
+    err = c.Insert(&StreamItem{Text: item.Text, Location: item.Location, Time: item.Time, Vibes: 1, Timestamp: time.Now() })
     if err != nil {
             log.Fatal(err)
     }
@@ -108,14 +109,6 @@ func getStreamItems(w http.ResponseWriter, req *http.Request) {
         fmt.Println("Query failed")
         log.Fatal(err)
     }
-
-    result := StreamItem{}
-    err = c.Find(bson.M{"type": ""}).Select(bson.M{"type": ""}).One(&result)
-  	if err != nil {
-  		panic(err)
-  	}
-
-    fmt.Println(result)
 
     // Marshal data (convert from go to json)
     data, _ := json.Marshal(results)

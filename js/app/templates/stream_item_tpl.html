@@ -1,10 +1,14 @@
 <article class="stream-item">
+  {{ Time }}
   <div class="count-container">
-    <img class="like-icon" src="images/pp_icon_unclicked_01.png">
+    <!-- <img class="like-icon" src="images/pp_icon_unclicked_01.png"> -->
+    <figure style="text-align: center;">
+      <img class="like-icon" src="images/pp_mobile_post-unclicked.png">
+    </figure>
     <span class="like-count hide-desktop">32</span>
   </div>
   <div class="stream-content">
     <p class="main-stream-text">{{ Text }}</p>
-    <p class="info-stream-text">{{ Location }} • {{ date }} • <a class="base--a remove_stream_item" href="">Not positive? Click to flag.</a> • Tweet • <span class="stream-item--post-count">{{ Vibes }} positive vibes</span></p>
+    <p class="info-stream-text">{{ Location }} • {{ Time }} • <a class="base--a remove_stream_item" href="">Not positive? Click to flag.</a> • Tweet • <span class="stream-item--post-count">{{ Vibes }} positive vibes</span></p>
   </div>
 </article>

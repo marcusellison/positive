@@ -4,5 +4,8 @@
 }
 
 .tagline {
-  display: inline-block;
+  display: none;
+  @include breakpoint($bkpt-1) {
+    display: inline-block;
+  }
 }

@@ -24,6 +24,9 @@
     @extend %_section--STREAM-HEADER;
   }
   &--LEFT-BOX {
-    @extend %section--LEFT-BOX;
+    @extend %_section--LEFT-BOX;
+  }
+  &--POST-BOX {
+    @extend %_section--POST-BOX;
   }
 }
