@@ -1,1 +1,1 @@
-web: positivepub
+web: positive-app
