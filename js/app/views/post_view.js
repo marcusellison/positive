@@ -3,9 +3,9 @@
  * A unit of positivity
  */
 
-define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templates/post_tpl'],
+define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'eq', 'hbs!templates/post_tpl'],
 
-    function(Backbone, Handlebars, _, $, moment, streamItemTemplate) {
+    function(Backbone, Handlebars, _, $, moment, eqjs, streamItemTemplate) {
 
         'use strict';
 
@@ -29,7 +29,7 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
 
             if (event.keyCode == 13) {
               var time = moment().format('h:mm a'),
-                  location = 'New York City',
+                  location = this.country,
                   vibes = 1;
 
               this.collection.create({
@@ -46,38 +46,44 @@ define(['backbone', 'handlebars', 'underscore', 'jquery', 'moment', 'hbs!templat
 
           },
 
+          onRender: function() {
+            console.log(this.el);
+            eqjs.query(this.el);
+          },
+
           addStreamItem: function(event) {
             event.preventDefault();
 
+
             var $event = $(event);
             var time = moment().format('h:mm a');
-            var location = "New York City";
+            var location = this.country;
             var $text = $('#post_message').val();
             var vibes = 1;
 
             this.collection.create({
-              time: time,
-              text: $text,
-              location: location,
-              vibes: vibes
+              Time: time,
+              Text: $text,
+              Location: location,
+              Vibes: vibes
             }, { at: 0, }, {merge: true});
 
+            console.log(this.model);
+
             $('#post_message').val('');
-
-            var streamItem = this.collection.get();
-
-            this.collection.fetch();
 
           },
 
           getLocation: function() {
+            var that = this;
+
             $.ajax( {
               url: '//freegeoip.net/json/',
               type: 'POST',
               dataType: 'jsonp',
               success: function(location) {
                 var country = location.country_code;
-                return country;
+                that.country = country;
               }
             } );
           }

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>The Positive Pub</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://platform.twitter.com/widgets.js"></script>
   <script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
     <script>
     // Load common code that includes config, then load the app logic for
@@ -29,7 +30,7 @@
       <span class="stream-header--post-count"> happy ventilations</span>
     </div>
 
-    <div id="post">
+    <div id="post" class="hide-mobile">
       <form class="post-input _section--POST-BOX" data-eq-pts="small: 400, large: 700" data-eq-state="small">
         <textarea id="post_message" class="base--textarea" maxlength='200' placeholder="Say something positive..."></textarea>
         <input class="base--submit add_stream_item" type="submit" value="SUBMIT">
@@ -41,9 +42,8 @@
     <section class="hide-mobile about-container _section--LEFT-BOX">
       <h2 class="base--h2">about the pub</h2>
       <p class="base--p">Inspired, positive words live here.</p>
-      <p class="base--p">Be inspired by inspiration.</p>
+      <a class="twitter_follow_link" href="https://twitter.com/intent/follow?screen_name=thepositivepub"><img src="" />Follow us on Twitter</a>
 
-      <a class="twitter_follow_link" href="">Follow us on Twitter ></a>
     </section>
 
   </div>

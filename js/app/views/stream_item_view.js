@@ -14,7 +14,7 @@ define(['backbone', 'handlebars', 'moment', 'underscore', 'hbs!templates/stream_
             template: streamItemTemplate,
 
             initialize: function(options) {
-              this.listenTo(this.model, "change", this.render);
+              this.listenTo(this.model, "change", this.update);
             },
 
             // serializeData: function(){
@@ -45,8 +45,13 @@ define(['backbone', 'handlebars', 'moment', 'underscore', 'hbs!templates/stream_
             addVibe: function(event) {
               var src = "images/pp_icon_active_01.png";
 
-              event.target.src = src;
+              // if the like icon has an active image
+              var $icon = this.$('.like-icon');
+              if ($icon.attr('src') === 'images/pp_icon_active_01.png') {
+                return
+              }
 
+              event.target.src = src;
 
               var vibes = this.incrementVibes(vibes);
 
@@ -69,6 +74,14 @@ define(['backbone', 'handlebars', 'moment', 'underscore', 'hbs!templates/stream_
 
             onBeforeDestroy: function(){
               this.$el.fadeOut();
+            },
+
+            update: function() {
+              // re-render
+              this.render();
+              // change the like-icon color to active after render
+              var $icon = this.$('.like-icon');
+              $icon.attr('src', 'images/pp_icon_active_01.png');
             }
 
         });

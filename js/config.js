@@ -65,6 +65,9 @@ require.config({
             deps: ['jquery', 'underscore', 'backbone'],
             exports: 'Marionette'
         },
+        eq: {
+            exports: ['eqjs']
+        },
         handlebars: {
             exports: 'Handlebars'
         },
@@ -76,7 +79,7 @@ require.config({
         },
         "intro": {
             exports: ['introJs']
-        },
+        }
     },
     hbs: {
         templateExtension: "html",

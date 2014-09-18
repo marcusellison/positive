@@ -23,14 +23,25 @@
   }
 }
 
+.like-icon-container {
+  text-align: center;
+  position: relative;
+  left: -8px;
+  @include breakpoint($bkpt-1) {
+    position: relative;
+    left: -8px;
+  }
+}
+
 .like-icon {
   width: 50%;
-  margin-top: 16px;
+  margin-top: 35px;
   &:hover {
     cursor: pointer;
   }
   @include breakpoint($bkpt-1) {
-    width: 90%;
+    width: 100%;
+    margin-top:35px;
   }
 }
 
@@ -38,9 +49,8 @@
   color: $charcoal;
   display: block;
   text-align: center;
-  @include breakpoint($bkpt-1) {
-    display: none;
-  }
+  position: relative;
+  left: -8px;
 }
 
 .stream-item--post-count {

@@ -25,7 +25,7 @@
 
 %_section--STREAM-HEADER {
   @extend %_section--secondary;
-  padding: 18px 60px 15px;
+  padding: 18px 60px 16px;
 }
 
 %_section--LEFT-BOX {
@@ -36,7 +36,8 @@
 %_section--POST-BOX {
   @extend %_section--LEFT-BOX;
   @include eq('large') {
-    display: block;
+    // display: block;
+    display: none;
   }
 
   @include eq('small') {
