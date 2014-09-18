@@ -4,7 +4,7 @@ import (
     "encoding/json"
     "fmt"
     "net/http"
-    //"os"
+    "os"
     "html/template"
     "log"
     "gopkg.in/mgo.v2"
@@ -25,9 +25,10 @@ type StreamItem struct {
 }
 
 func main() {
+
     r := mux.NewRouter()
 
-     r.HandleFunc("/", IndexHandler)
+    r.HandleFunc("/", IndexHandler)
     r.HandleFunc("/getStreamItems", getStreamItems)
     r.HandleFunc("/streamItem", createStreamItem)
     r.HandleFunc("/streamItem/{id}", deleteStreamItem).Methods("DELETE")
@@ -43,11 +44,21 @@ func main() {
 
     // starting the server
 
-  	err = http.ListenAndServe(":4000", nil)
+  	err = http.ListenAndServe(GetPort(), nil)
   	if err != nil {
   		log.Fatal(err)
   	}
+}
 
+// Get the Port from the environment so we can run on Heroku
+func GetPort() string {
+        var port = os.Getenv("PORT")
+        // Set a default port if there is nothing in the environment
+        if port == "" {
+                port = "4000"
+                fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+        }
+        return ":" + port
 }
 
 func IndexHandler(w http.ResponseWriter, req *http.Request) {
@@ -64,7 +75,18 @@ func createStreamItem(w http.ResponseWriter, req *http.Request) {
         log.Println("json decoder failed")
     }
 
-    session, err := mgo.Dial("localhost:27017")
+    // In the open command window set the following for Heroku:
+    // heroku config:set MONGOHQ_URL=
+    // mongodb://IndianGuru:password@troup.mongohq.com:10080/godata
+    uri := os.Getenv("MONGOHQ_URL")
+    if uri == "" {
+            fmt.Println("assuming local environment")
+            uri = "localhost:27017"
+    }
+
+    // if production, get mongo url environment variable
+    // otherwise get localhost database
+    session, err := mgo.Dial(uri)
     if err != nil {
             panic(err)
     }
