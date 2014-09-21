@@ -119,6 +119,7 @@ func getStreamItems(w http.ResponseWriter, req *http.Request) {
     // connect to mongo
     session, err := mgo.Dial(uri)
     if err != nil {
+            fmt.Println("error connecting to database")
             panic(err)
     }
     defer session.Close()
