@@ -3,9 +3,9 @@
  * A unit of positivity
  */
 
-define(['backbone', 'handlebars', 'moment', 'underscore', 'hbs!templates/stream_item_tpl'],
+define(['backbone', 'handlebars', 'moment', 'underscore', 'marionette', 'hbs!templates/stream_item_tpl'],
 
-    function(Backbone, Handlebars, moment, _, streamItemTemplate) {
+    function(Backbone, Handlebars, moment, _, Marionette, streamItemTemplate) {
 
         'use strict';
 
