@@ -110,6 +110,7 @@ func getStreamItems(w http.ResponseWriter, req *http.Request) {
     // Get mongo uri
     // if there isn't one, assume connection to local host
     uri := os.Getenv("MONGOHQ_URL")
+    fmt.Println(uri)
     if uri == "" {
             fmt.Println("assuming local environment")
             uri = "localhost:27017"
