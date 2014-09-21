@@ -75,17 +75,15 @@ func createStreamItem(w http.ResponseWriter, req *http.Request) {
         log.Println("json decoder failed")
     }
 
-    // In the open command window set the following for Heroku:
-    // heroku config:set MONGOHQ_URL=
-    // mongodb://IndianGuru:password@troup.mongohq.com:10080/godata
+    // Get mongo uri
+    // if there isn't one, assume connection to local host
     uri := os.Getenv("MONGOHQ_URL")
     if uri == "" {
             fmt.Println("assuming local environment")
             uri = "localhost:27017"
     }
 
-    // if production, get mongo url environment variable
-    // otherwise get localhost database
+    //connect to mongo
     session, err := mgo.Dial(uri)
     if err != nil {
             panic(err)
@@ -109,8 +107,16 @@ func createStreamItem(w http.ResponseWriter, req *http.Request) {
 
 func getStreamItems(w http.ResponseWriter, req *http.Request) {
 
+    // Get mongo uri
+    // if there isn't one, assume connection to local host
+    uri := os.Getenv("MONGOHQ_URL")
+    if uri == "" {
+            fmt.Println("assuming local environment")
+            uri = "localhost:27017"
+    }
+
     // connect to mongo
-    session, err := mgo.Dial("localhost:27017")
+    session, err := mgo.Dial(uri)
     if err != nil {
             panic(err)
     }
@@ -151,8 +157,16 @@ func updateStreamItem(w http.ResponseWriter, req *http.Request) {
         log.Println("json decoder failed")
     }
 
+    // Get mongo uri
+    // if there isn't one, assume connection to local host
+    uri := os.Getenv("MONGOHQ_URL")
+    if uri == "" {
+            fmt.Println("assuming local environment")
+            uri = "localhost:27017"
+    }
+
     // connect to mongo
-    session, err := mgo.Dial("localhost:27017")
+    session, err := mgo.Dial(uri)
     if err != nil {
             panic(err)
     }
@@ -182,8 +196,16 @@ func deleteStreamItem(w http.ResponseWriter, req *http.Request) {
 
     id := (vars["id"])
 
+    // Get mongo uri
+    // if there isn't one, assume connection to local host
+    uri := os.Getenv("MONGOHQ_URL")
+    if uri == "" {
+            fmt.Println("assuming local environment")
+            uri = "localhost:27017"
+    }
+
     // connect to mongo
-    session, err := mgo.Dial("localhost:27017")
+    session, err := mgo.Dial(uri)
     if err != nil {
             panic(err)
     }
