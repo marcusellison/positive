@@ -78,9 +78,12 @@ func createStreamItem(w http.ResponseWriter, req *http.Request) {
     // Get mongo uri
     // if there isn't one, assume connection to local host
     uri := os.Getenv("MONGOHQ_URL")
+    db := "app29731066"
+    fmt.Println(uri)
     if uri == "" {
             fmt.Println("assuming local environment")
             uri = "localhost:27017"
+            db = "test"
     }
 
     //connect to mongo
@@ -95,7 +98,7 @@ func createStreamItem(w http.ResponseWriter, req *http.Request) {
     session.SetMode(mgo.Monotonic, true)
 
     // connect ot the posts collections of the test database
-    c := session.DB("test").C("posts")
+    c := session.DB(db).C("posts")
 
     // insert the new stream item
     err = c.Insert(&StreamItem{Text: item.Text, Location: item.Location, Time: item.Time, Vibes: 1, Timestamp: time.Now() })
@@ -110,10 +113,12 @@ func getStreamItems(w http.ResponseWriter, req *http.Request) {
     // Get mongo uri
     // if there isn't one, assume connection to local host
     uri := os.Getenv("MONGOHQ_URL")
+    db := "app29731066"
     fmt.Println(uri)
     if uri == "" {
             fmt.Println("assuming local environment")
             uri = "localhost:27017"
+            db = "test"
     }
 
     // connect to mongo
@@ -128,7 +133,7 @@ func getStreamItems(w http.ResponseWriter, req *http.Request) {
     session.SetMode(mgo.Monotonic, true)
 
     //define posts collection as 'c'
-    c := session.DB("test").C("posts")
+    c := session.DB(db).C("posts")
 
     //define results variable as a StreamItem slice
     results := []StreamItem{}
@@ -162,9 +167,12 @@ func updateStreamItem(w http.ResponseWriter, req *http.Request) {
     // Get mongo uri
     // if there isn't one, assume connection to local host
     uri := os.Getenv("MONGOHQ_URL")
+    db := "app29731066"
+    fmt.Println(uri)
     if uri == "" {
             fmt.Println("assuming local environment")
             uri = "localhost:27017"
+            db = "test"
     }
 
     // connect to mongo
@@ -178,7 +186,7 @@ func updateStreamItem(w http.ResponseWriter, req *http.Request) {
     session.SetMode(mgo.Monotonic, true)
 
     //define posts collection as 'c'
-    c := session.DB("test").C("posts")
+    c := session.DB(db).C("posts")
 
     // Update
     update := bson.M{"$set": bson.M{"vibes": item.Vibes}}
@@ -201,9 +209,12 @@ func deleteStreamItem(w http.ResponseWriter, req *http.Request) {
     // Get mongo uri
     // if there isn't one, assume connection to local host
     uri := os.Getenv("MONGOHQ_URL")
+    db := "app29731066"
+    fmt.Println(uri)
     if uri == "" {
             fmt.Println("assuming local environment")
             uri = "localhost:27017"
+            db = "test"
     }
 
     // connect to mongo
@@ -217,7 +228,7 @@ func deleteStreamItem(w http.ResponseWriter, req *http.Request) {
     session.SetMode(mgo.Monotonic, true)
 
     //define posts collection as 'c'
-    c := session.DB("test").C("posts")
+    c := session.DB(db).C("posts")
 
     // update results variable with array of bson objects that match query
 
